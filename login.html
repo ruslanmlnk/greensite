@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KCD LTD — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --g1: #3C766F;
+      --g2: #096F64;
+      --g3: #113834;
+      --mint: #80EAD4;
+      --mint2: #b8e8da;
+      --dark: #10423C;
+      --w: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #0f3a35;
+      color: var(--w);
+    }
+
+    /* Canvas exactly as design (1920×801) */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      height: 801px;
+      min-height: 801px;
+      max-height: 801px;
+      background: linear-gradient(180deg, var(--g1) 0%, var(--g2) 44.71%, var(--g3) 100%);
+    }
+
+    /* Right photo with ultra-smooth blend to the gradient background */
+    .decor {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .decor::before {
+      content: "";
+      position: absolute;
+      top: -160px;
+      bottom: -160px;
+      right: -8vw;
+      left: auto;
+      width: 66vw;
+      min-width: 560px;
+      background: url('bg.jpg') center right / cover no-repeat;
+      filter: saturate(1.2) brightness(.9);
+      /* Smoothly fade image into the base gradient */
+      -webkit-mask-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 28%,
+        rgba(0, 0, 0, .06) 36%,
+        rgba(0, 0, 0, .14) 43%,
+        rgba(0, 0, 0, .28) 50%,
+        rgba(0, 0, 0, .48) 57%,
+        rgba(0, 0, 0, .70) 64%,
+        rgba(0, 0, 0, .88) 72%,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      mask-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 28%,
+        rgba(0, 0, 0, .06) 36%,
+        rgba(0, 0, 0, .14) 43%,
+        rgba(0, 0, 0, .28) 50%,
+        rgba(0, 0, 0, .48) 57%,
+        rgba(0, 0, 0, .70) 64%,
+        rgba(0, 0, 0, .88) 72%,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(0, 0, 0, 1) 100%
+      );
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+    }
+
+    .decor::after {
+      /* extra softening so the seam is invisible on 1920 */
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(16, 66, 60, .88) 0%,
+          rgba(16, 66, 60, .74) 18%,
+          rgba(16, 66, 60, .50) 34%,
+          rgba(16, 66, 60, .28) 48%,
+          rgba(16, 66, 60, .14) 60%,
+          rgba(16, 66, 60, 0) 70%
+        ),
+        radial-gradient(
+          1100px 620px at 58% 34%,
+          rgba(16, 66, 60, .22) 0%,
+          rgba(16, 66, 60, .10) 55%,
+          rgba(16, 66, 60, 0) 100%
+        );
+      mix-blend-mode: normal;
+    }
+
+    /* Layout offsets per spec: L=231, T=179, form W=568 */
+    .container {
+      padding-left: 231px;
+      padding-right: 80px;
+    }
+
+    .content {
+      padding-top: 179px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Top bar */
+    .nav {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0 80px;
+    }
+
+    .brand {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+    }
+
+    .brand img {
+      width: 146px;
+      height: 60px;
+      display: block;
+    }
+
+    .hamb {
+  display: none;
+  place-items: center;
+  width: 28px;
+  height: 24px;
+  cursor: pointer;
+}
+
+    .hamb::before,
+    .hamb::after,
+    .hamb span {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 1px;
+    }
+
+    .hamb::before {
+      transform: translateY(-7px);
+    }
+
+    .hamb::after {
+      transform: translateY(7px);
+    }
+
+    /* Form */
+    .title {
+      font-size: 64px;
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 26px;
+    }
+
+    .form {
+      width: 568px;
+      max-width: 568px;
+    }
+
+    label {
+      display: block;
+      margin: 0 0 8px;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .control {
+      position: relative;
+    }
+
+    input {
+      width: 100%;
+      height: 56px;
+      border-radius: 12px;
+      padding: 14px 16px;
+      padding-right: 48px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.06));
+      color: #fff;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    input:focus {
+      border-color: rgba(255, 255, 255, 0.45);
+      box-shadow: 0 0 0 3px rgba(128, 234, 212, 0.15);
+    }
+
+    .eye {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      opacity: 0.95;
+      cursor: pointer;
+    }
+
+    .btn {
+      width: 100%;
+      height: 56px;
+      border-radius: 12px;
+      border: 0;
+      background: var(--mint);
+      color: var(--dark);
+      font-size: 20px;
+      line-height: 24px;
+      margin-top: 18px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--mint2);
+    }
+
+    .meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .meta a {
+      color: #fff;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive (keep behavior outside 1920) */
+    @media (max-width: 1360px) {
+      .container { padding-left: 120px; }
+      .form { max-width: 640px; }
+    }
+
+        @media (max-width: 991px) {
+      .hero {
+        min-height: 100dvh;
+        height: auto;
+        max-height: none;
+      }
+      .container {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      .nav {
+        position: relative;
+        top: 0;
+        padding: 22px 20px;
+      }
+      .content { padding-top: 96px; }
+      .title { font-size: 48px; }
+      .decor::before { right: -24vw; }
+      .form {
+        max-width: 100%;
+        width: 100%;
+      }
+      .hamb { display: inline-grid; }
+    }@media (max-width: 600px) {
+      .title {
+        font-size: 44px;
+        margin-bottom: 14px;
+      }
+      .content { padding-top: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="hero">
+    <div class="decor" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="brand" href="index.html" aria-label="KCD LTD">
+        <img src="logo.svg" alt="KCD LTD">
+      </a>
+      <div class="hamb" aria-hidden="true"><span></span></div>
+    </header>
+
+    <div class="container">
+      <section class="content">
+        <h1 class="title">Login</h1>
+
+        <form class="form" action="#" onsubmit="return false">
+          <label for="email">Email</label>
+          <div class="control">
+            <input id="email" type="email" placeholder="john@company.com" autocomplete="email" required>
+          </div>
+
+          <div style="height: 22px;"></div>
+
+          <label for="password">Password *</label>
+          <div class="control">
+            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required>
+            <button
+              type="button"
+              class="eye"
+              aria-label="Show password"
+              onclick="(function(){var i=document.getElementById('password');i.type=i.type==='password'?'text':'password';})();"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="22"
+                height="22"
+                fill="none"
+                stroke="#fff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+
+          <button class="btn" type="submit">Login</button>
+
+          <div class="meta">
+            <p>Don’t you have an account? <a href="#">Sign Up</a></p>
+            <p><a href="#">Forgot password</a></p>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
