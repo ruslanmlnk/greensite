@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KCD LTD — Article</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --g1:#3C766F; --g2:#096F64; --g3:#113834; --mint:#80EAD4; --dark:#10423C; --ink:#0f3a35;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#0f3a35;background:#ffffff}
+
+    /* HERO (copied from index.html for pixel-match nav) */
+    .hero-section{background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 44.71%,var(--g3) 100%);height:420px;position:relative;color:#fff;overflow:visible}
+    .custom-container{width:100%;padding-left:80px;padding-right:80px}
+    .navbar-custom{padding-block:50px}
+    .navbar-content{display:flex;justify-content:space-between;align-items:center}
+    .navbar-brand svg{width:146px;height:60px;display:block}
+    .navbar-center{position:absolute;left:50%;transform:translateX(-50%)}
+    .btn-request-nav{background-color:#80EAD4;color:#10423C;border:none;padding:13px 61px;border-radius:50px;font-weight:400;font-size:20px;line-height:24px;transition:.3s;white-space:nowrap;cursor:pointer;width:274px}
+    .btn-request-nav:hover{background:#b8e8da;transform:translateY(-1px)}
+    .navbar-right{display:flex;align-items:center;gap:37px;margin-left:auto}
+    .nav-link-custom{color:#fff;text-decoration:none;font-size:20px;font-weight:400;transition:opacity .3s;white-space:nowrap}
+    .nav-link-custom:hover{opacity:.8}
+    .nav-link-custom.login{text-decoration:underline;text-underline-offset:4px}
+    .search-icon{cursor:pointer;width:33px;height:33px;background:rgba(255,255,255,.18);border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:7px}
+    .desktop-nav{display:flex;align-items:center;width:100%}
+
+    /* Title inside hero, aligned to article content width (441px margins at 1920) */
+    .title-wrap{max-width:1038px;margin:40px auto 22px auto}
+    .title{font-size:44px;line-height:1.2;font-weight:700;color:#fff}
+
+    /* Article main image (88px side gutters at 1920) */
+    .article-hero-img{width:calc(100% - 176px);max-width:calc(100% - 176px);margin:24px auto 48px auto;border-radius:16px;overflow:visible;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+    .article-hero-img img{width:100%;height:auto;display:block}
+
+    /* Article body content (441px side gutters at 1920 => 1038px width) */
+    .article{max-width:1038px;margin:0 auto 80px auto}
+    .article p{font-size:16px;line-height:1.8;color:#4c6661;margin:0 0 18px 0}
+    .article h3{font-size:18px;font-weight:600;color:#0f3a35;margin:28px 0 8px 0}
+
+    /* Mobile menu button (optional) hidden for desktop as in login.html task) */
+    .mobile-menu-toggle{display:none;background:none;border:1px solid rgba(255,255,255,.5);padding:8px 12px;cursor:pointer;border-radius:4px}
+    .hamburger{width:24px;height:24px;position:relative}
+    .hamburger span{display:block;width:100%;height:2px;background:#fff;margin:5px 0}
+    .mobile-nav{display:none;background:rgba(0,0,0,.1);padding:20px;border-radius:10px;margin-top:20px}
+    .mobile-nav.active{display:block}
+    .mobile-nav .nav-link-custom{display:block;padding:12px 0}
+    .mobile-nav .btn-request-nav{width:100%;margin-top:16px}
+
+    @media (max-width: 991px){
+      .desktop-nav{display:none}
+      .mobile-menu-toggle{display:block}
+      .title{font-size:34px}
+      .article-hero-img{width:calc(100% - 40px)}
+      .article{max-width:none;margin:0 20px 60px}
+      .title-wrap{margin:24px 20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-section">
+    <nav class="navbar-custom">
+      <div class="custom-container">
+        <div class="navbar-content">
+          <a class="navbar-brand" href="index.html" aria-label="KCD LTD">
+            <!-- inline logo from logo.svg -->
+             <svg width="451" height="199" viewBox="0 0 451 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M76.5621 108.261L76.5511 2.1074C76.5512 1.66148 76.4098 1.22703 76.1472 0.866572C75.8847 0.506117 75.5146 0.238234 75.0902 0.101497C74.6657 -0.0352401 74.2089 -0.0337793 73.7853 0.105647C73.3617 0.245074 72.9933 0.515278 72.7331 0.877391L61.0261 17.1414C58.5451 20.5921 57.2097 24.7344 57.2081 28.9844V122.207C61.8911 119.152 66.7811 115.73 71.7931 111.947C73.4071 110.729 74.9968 109.501 76.5621 108.261Z" fill="white"/>
+                            <path d="M145.893 52.7354C140.993 46.2464 122.217 45.7354 103.293 58.0814V32.6304C103.291 30.5777 102.851 28.5491 102.002 26.6801C101.153 24.8111 99.9153 23.1448 98.3711 21.7924L88.8611 13.4834C88.4316 13.1082 87.9031 12.8646 87.3389 12.7816C86.7746 12.6987 86.1984 12.78 85.6791 13.0159C85.1598 13.2517 84.7194 13.632 84.4104 14.1114C84.1015 14.5908 83.9372 15.1491 83.9371 15.7194V102.219C90.7528 96.4964 97.1678 90.3125 103.137 83.7114C103.188 83.6544 103.237 83.5974 103.288 83.5394V65.7404C113.027 60.1844 119.448 61.5564 121.308 64.0244C126.83 71.3384 106.862 95.7134 76.7141 118.467C46.5661 141.221 17.6481 153.738 12.1301 146.423C9.01508 142.297 17.7021 127.091 30.4761 114.584V136.832C37.1566 133.959 43.6248 130.614 49.8321 126.825V39.2254C49.8322 38.7794 49.6909 38.3448 49.4284 37.9841C49.1659 37.6235 48.7958 37.3555 48.3713 37.2185C47.9468 37.0816 47.4898 37.0828 47.066 37.2221C46.6423 37.3613 46.2736 37.6314 46.0131 37.9934L34.2951 54.2774C31.8137 57.728 30.4779 61.8703 30.4761 66.1204V107.157C9.49409 128.473 -4.52393 154.057 1.34307 161.824C5.49507 167.324 16.2131 167.111 30.4761 162.324V169.275C30.4784 171.328 30.9187 173.357 31.7675 175.226C32.6162 177.095 33.854 178.762 35.3981 180.114L44.9141 188.42C45.3433 188.796 45.8716 189.04 46.4357 189.123C46.9999 189.206 47.576 189.125 48.0952 188.889C48.6144 188.653 49.0547 188.273 49.3635 187.793C49.6722 187.314 49.8363 186.756 49.8361 186.185V154.085C52.2481 152.873 54.7058 151.573 57.2091 150.185V196.762C57.209 197.208 57.3504 197.643 57.6129 198.003C57.8754 198.364 58.2456 198.632 58.67 198.768C59.0944 198.905 59.5513 198.904 59.9749 198.764C60.3984 198.625 60.7669 198.354 61.0271 197.992L72.7451 181.71C75.2266 178.26 76.562 174.117 76.5631 169.867V138.307C79.0104 136.66 81.4681 134.951 83.9361 133.181V160.863C83.9364 161.309 84.0782 161.744 84.341 162.104C84.6039 162.465 84.9742 162.733 85.3988 162.869C85.8235 163.006 86.2805 163.005 86.7042 162.865C87.1279 162.726 87.4966 162.456 87.7571 162.093L99.4731 145.807C101.953 142.356 103.289 138.214 103.291 133.964V118.074C135.204 90.9924 153.814 63.2314 145.893 52.7354Z" fill="white"/>
+                            <path d="M147.804 122.935L155.532 76.3895H168.168L165.077 95.2076H165.713L182.804 76.3895H197.532L178.441 97.1167L190.168 122.935H175.077L167.622 105.48L162.441 111.026L160.441 122.935H147.804ZM254.532 93.844H241.895C241.986 92.7682 241.926 91.7985 241.713 90.9349C241.501 90.0713 241.138 89.3288 240.622 88.7076C240.107 88.0713 239.433 87.5864 238.6 87.2531C237.766 86.9198 236.774 86.7531 235.622 86.7531C233.41 86.7531 231.433 87.3061 229.691 88.4122C227.948 89.5031 226.501 91.0713 225.35 93.1167C224.198 95.147 223.38 97.5713 222.895 100.389C222.471 103.117 222.456 105.382 222.85 107.185C223.259 108.988 224.054 110.336 225.236 111.23C226.433 112.124 227.986 112.571 229.895 112.571C231.168 112.571 232.335 112.42 233.395 112.117C234.471 111.814 235.426 111.382 236.259 110.821C237.107 110.246 237.827 109.564 238.418 108.776C239.024 107.973 239.486 107.086 239.804 106.117H252.532C252.047 108.086 251.183 110.102 249.941 112.162C248.698 114.208 247.092 116.094 245.122 117.821C243.153 119.533 240.835 120.92 238.168 121.98C235.501 123.041 232.501 123.571 229.168 123.571C224.804 123.571 221.039 122.617 217.872 120.708C214.721 118.799 212.433 116.011 211.009 112.344C209.6 108.677 209.319 104.208 210.168 98.9349C211.016 93.844 212.691 89.5788 215.191 86.1395C217.691 82.7001 220.729 80.1091 224.304 78.3667C227.88 76.6243 231.683 75.7531 235.713 75.7531C238.759 75.7531 241.486 76.1546 243.895 76.9576C246.319 77.7607 248.357 78.9349 250.009 80.4804C251.676 82.0107 252.903 83.897 253.691 86.1395C254.479 88.3819 254.759 90.9501 254.532 93.844ZM286.424 122.935H268.242L275.969 76.3895H293.424C298.212 76.3895 302.212 77.3516 305.424 79.2758C308.636 81.2001 310.916 83.9501 312.265 87.5258C313.613 91.1016 313.878 95.3591 313.06 100.299C312.272 105.056 310.674 109.124 308.265 112.503C305.871 115.882 302.81 118.465 299.083 120.253C295.371 122.041 291.151 122.935 286.424 122.935ZM282.651 112.208H287.242C289.545 112.208 291.598 111.806 293.401 111.003C295.219 110.185 296.734 108.821 297.946 106.912C299.174 104.988 300.06 102.359 300.605 99.0258C301.121 95.8743 301.105 93.4425 300.56 91.7304C300.015 90.0031 298.977 88.8061 297.446 88.1395C295.916 87.4576 293.939 87.1167 291.515 87.1167H286.833L282.651 112.208ZM338.725 122.935V76.3895H344.361V117.935H365.997V122.935H338.725ZM365.992 81.3895V76.3895H400.901V81.3895H386.265V122.935H380.628V81.3895H365.992ZM423.963 122.935H409.6V76.3895H424.6C429.115 76.3895 432.979 77.3213 436.191 79.1849C439.403 81.0334 441.865 83.6925 443.577 87.1622C445.289 90.6167 446.145 94.7531 446.145 99.5713C446.145 104.42 445.282 108.594 443.554 112.094C441.827 115.579 439.312 118.261 436.009 120.139C432.706 122.003 428.691 122.935 423.963 122.935ZM415.236 117.935H423.6C427.448 117.935 430.638 117.192 433.168 115.708C435.698 114.223 437.585 112.109 438.827 109.367C440.069 106.624 440.691 103.359 440.691 99.5713C440.691 95.8137 440.077 92.5788 438.85 89.8667C437.622 87.1395 435.789 85.0485 433.35 83.594C430.91 82.1243 427.872 81.3895 424.236 81.3895H415.236V117.935Z" fill="white"/>
+                        </svg>
+
+          </a>
+          <div class="desktop-nav">
+            <div class="navbar-center">
+              <button class="btn-request-nav">Request Access</button>
+            </div>
+            <div class="navbar-right">
+              <a class="nav-link-custom" href="#offerings">Offerings</a>
+              <a class="nav-link-custom" href="#invest">Invest</a>
+              <a class="nav-link-custom" href="#discover">Discover</a>
+              <a class="nav-link-custom" href="#about">About</a>
+              <a class="nav-link-custom login" href="login.html">Log In</a>
+              <div class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.125 15.6875C12.3017 15.6875 15.6875 12.3017 15.6875 8.125C15.6875 3.94835 12.3017 0.5625 8.125 0.5625C3.94835 0.5625 0.5625 3.94835 0.5625 8.125C0.5625 12.3017 3.94835 15.6875 8.125 15.6875Z" stroke="white"/>
+                  <path d="M13.625 13.625L19.125 19.125" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <div class="hamburger"><span></span><span></span><span></span></div>
+          </button>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+          <button class="btn-request-nav">Request Access</button>
+          <a class="nav-link-custom" href="#offerings">Offerings</a>
+          <a class="nav-link-custom" href="#invest">Invest</a>
+          <a class="nav-link-custom" href="#discover">Discover</a>
+          <a class="nav-link-custom" href="#about">About</a>
+          <a class="nav-link-custom login" href="login.html">Log In</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="title-wrap">
+      <h1 class="title">CRE Market in Transition: 3 Key Trends Driving 2025 Momentum</h1>
+    </div>
+
+    <div class="article-hero-img">
+      <img src="article.jpg" alt="Article cover" />
+    </div>
+  </div>
+
+  <main class="article">
+    <p>In our mid-year take on the 2025 commercial real estate market, we explored early signs of recovery by sector, and the forces shaping market sentiment heading into the second half.</p>
+    <p>The big theme was the impact of limited new supply — especially in multifamily — in driving valuations higher, pulling occupancy back toward historical norms, and bringing institutional capital off the sidelines.</p>
+    <p>In the days since that article, we’ve seen a few headlines that we think are relevant to the themes we covered. With that in mind, we’ve put together a short roundup of some notable developments in CRE.</p>
+    <h3>Carlyle Raises Largest U.S. Real Estate Fund to Date</h3>
+    <p>Carlyle Group, one of the world’s leading investment firms, just raised the largest real estate fund in firm history — surpassing its previous record of  billion in 2021, during the peak of the post‑pandemic CRE cycle. Carlyle will put the new funds into the residential, self‑storage and industrial sectors.</p>
+    <h3>Why It Matters</h3>
+    <p>CRE fundraising has rebounded in 2025 after falling to a decade‑low last year, helped by large commitments from institutional investors like this one. More capital in the market can support transaction activity, help projects move forward, and signal improving sentiment across the industry.</p>
+    <h3>Restaurants Clamor for Retail Space in NYC’s Sizzling Market</h3>
+    <p>Demand for restaurant space in New York City is near record highs, with some tenants spending as much as ,000 to convert other types of retail space into kitchens. In Q2, retail availability across 11 of Manhattan’s busiest shopping corridors fell to 12.8% — the lowest level since late 2014.</p>
+    <h3>Why It Matters</h3>
+    <p>Falling availability rates, as discussed in our recent article, are a key sign of rising demand and can signal future rent or valuation growth. While the restaurant recovery has been uneven nationally, New York City shows that demand in certain regions is reaching record highs.</p>
+    <h3>Blackstone Signals Ongoing Confidence in CRE Market</h3>
+    <p>Arguably, the world’s most famous global investment firm has been a consistent presence in CRE for more than 18 months, and its latest earnings call was no exception. Fundraising for the category rose quarter over quarter to .2 billion, while deployments increased to .6 billion.</p>
+    <p>Taken together, these headlines point to a CRE market that, while still navigating real challenges, is attracting meaningful capital and showing pockets of strong demand. From major fundraising wins to sector‑specific momentum, activity across these fronts reinforces the themes we explored last week — and underscores why many see 2025 as a year of transition for the asset class.</p>
+    <p>As always, CRE is not without its challenges, and investors should weigh ongoing risks alongside any signs of momentum.</p>
+  </main>
+
+  <script>
+    function toggleMobileMenu(){
+      const m = document.getElementById('mobileNav');
+      if(m){ m.classList.toggle('active'); }
+    }
+  </script>
+</body>
+</html>
