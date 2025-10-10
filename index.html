@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -261,6 +261,106 @@
                 padding-right: 20px;
             }
         }
+    
+        /* Impact section (pixel-precise layout) */
+        .impact-section {
+            background: #ffffff;
+            color: #102f2a;
+        }
+        .impact-section .custom-container {
+            padding-top: 88px;
+            padding-bottom: 88px;
+        }
+        .impact2-header {
+            max-width: 520px;
+            margin-bottom: 38px;
+        }
+        .impact2-header h2 {
+            font-size: 48px;
+            line-height: 1.08;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0f3a35;
+            margin-bottom: 18px;
+        }
+        .impact2-header p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #6c817d;
+        }
+                                        .impact2-cards {
+            display: flex;
+            align-items: flex-end;
+            gap: 19px;
+            width: 1313px; /* 3*425 + 2*19 */
+            justify-self: end; /* snap to right edge of container */
+        }
+        .i-card {
+            border-radius: 28px;
+            position: relative;
+            padding: 28px;
+            overflow: hidden;
+            border: 1px solid rgba(8, 56, 50, 0.16);
+        }
+        .i-card.i72 { width: 425px; height: 280px; background: #3aa59b; }
+        .i-card.i85 { width: 425px; height: 300px; background: #80ead4; }
+        .i-card.i93 { width: 425px; height: 420px; background: #0e3f39; }
+        .i-value {
+            font-size: 84px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            color: #ffffff;
+        }
+        .i-value.dark { color: #0f3a35; }
+        .i-text {
+            margin-top: 12px;
+            font-size: 16px;
+            line-height: 1.55;
+            color: rgba(255, 255, 255, 0.94);
+            max-width: 90%;
+        }
+        .i-text.dark { color: #0f3a35; opacity: 0.88; }
+        .i-bars {
+            position: absolute;
+            left: 22px;
+            right: 22px;
+            bottom: 18px;
+            height: 90px;
+            display: grid;
+            grid-auto-flow: column;
+            gap: 10px;
+            align-items: end;
+            opacity: 0.65;
+        }
+        .i-bars span {
+            width: 10px;
+            background: #5a8f88;
+            border-radius: 5px;
+        }
+                        @media (max-width: 991px) {
+            .impact2-grid { grid-template-columns: 1fr; row-gap: 24px; }
+            .impact2-cards {
+                width: 100%;
+                justify-self: stretch;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .i-card { width: 100% !important; height: auto; }
+        }
+            @media (max-width: 600px) { .impact-section { display: none; } }
+            /* Figures section (Key Figures) */
+        .figs-section { background: #eaf6f4; color: #0f3a35; }
+        .figs-section .custom-container { padding-left: 104px; padding-right: 104px; padding-top: 72px; padding-bottom: 72px; }
+        .figs-head { text-align: center; margin-bottom: 36px; }
+        .figs-head h3 { font-size: 28px; line-height: 1.25; font-weight: 600; margin-bottom: 10px; }
+        .figs-head p { font-size: 16px; line-height: 1.6; color: #5d7671; max-width: 720px; margin: 0 auto; }
+        .figs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px; align-items: start; }
+        .fig { display: grid; row-gap: 10px; }
+        .metric-value { font-family: Versus, Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; font-weight: 900; font-size: 96px; line-height: 1; letter-spacing: 0; color: #10403B; }
+        .metric-desc { font-size: 16px; line-height: 1.5; color: #294945; max-width: 280px; }
+        @media (max-width: 1100px) { .figs-grid { grid-template-columns: repeat(2, 1fr); row-gap: 28px; } }
+        @media (max-width: 600px) { .figs-section { display: none; } }
     </style>
 </head>
 <body>
@@ -322,7 +422,7 @@
 
         <div class="custom-container">
             <div class="hero-content">
-                <h1 class="hero-title">KEYSTONE CAPITAL DEVELOPMENTS LTD — Your Direct Path to Private Market Success</h1>
+                <h1 class="hero-title">KEYSTONE CAPITAL DEVELOPMENTS LTD вЂ” Your Direct Path to Private Market Success</h1>
                 <!-- <h2 class="hero-subtitle">Your Direct Path to Private Market Success</h2> -->
                 <button class="btn-hero">
                     Request Access
@@ -334,7 +434,71 @@
         </div>
     </div>
 
-    <script>
+    <section class="impact-section">
+  <div class="custom-container">
+    <div class="impact2-grid">
+      <div class="impact2-header">
+                <h2>Our Impact in Numbers</h2>
+                <p>At KEYSTONE CAPITAL DEVELOPMENTS LTD, we provide a direct path to private market success. Here’s a snapshot of how we create value for our investors.</p>
+            </div>
+            <div class="impact2-cards">
+                <article class="i-card i72">
+                    <div class="i-value">72%</div>
+                    <p class="i-text">Of our investors achieve above-market returns within their first year.</p>
+                </article>
+                <article class="i-card i85">
+                    <div class="i-value dark">85%</div>
+                    <p class="i-text dark">Portfolio diversification improved across key private market sectors.</p>
+                </article>
+                <article class="i-card i93">
+                    <div class="i-value">93%</div>
+                    <p class="i-text">Client satisfaction rate, thanks to transparency and long-term growth strategies.</p>
+                    <div class="i-bars" aria-hidden="true">
+                        <span style="height: 20px"></span>
+                        <span style="height: 34px"></span>
+                        <span style="height: 18px"></span>
+                        <span style="height: 60px"></span>
+                        <span style="height: 26px"></span>
+                        <span style="height: 48px"></span>
+                        <span style="height: 38px"></span>
+                        <span style="height: 26px"></span>
+                        <span style="height: 52px"></span>
+                        <span style="height: 28px"></span>
+                        <span style="height: 66px"></span>
+                        <span style="height: 24px"></span>
+                    </div>
+                </article>
+      </div>
+    </div>
+  </div>
+</section>   
+        <section class="figs-section">
+      <div class="custom-container">
+        <div class="figs-head">
+          <h3>Key Figures That Define Our Success</h3>
+          <p>At KEYSTONE CAPITAL DEVELOPMENTS LTD, numbers reflect the real value we deliver to our investors.</p>
+        </div>
+        <div class="figs-grid">
+          <div class="fig">
+            <div class="metric-value">120+</div>
+            <div class="metric-desc">Successful private market deals closed. Proven track record in multiple sectors</div>
+          </div>
+          <div class="fig">
+            <div class="metric-value">85%</div>
+            <div class="metric-desc">Investor portfolio diversification. Strengthening growth and reducing risks</div>
+          </div>
+          <div class="fig">
+            <div class="metric-value">+</div>
+            <div class="metric-desc">Capital under management. Trusted by global investors</div>
+          </div>
+          <div class="fig">
+            <div class="metric-value">95%</div>
+            <div class="metric-desc">Client satisfaction rate. Driven by transparency and long‑term vision</div>
+          </div>
+        </div>
+      </div>
+    </section>
+<script>
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
             mobileNav.classList.toggle('active');

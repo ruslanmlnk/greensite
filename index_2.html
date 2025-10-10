@@ -1,0 +1,484 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KCD LTD — Index 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --g1: #3C766F;
+      --g2: #096F64;
+      --g3: #113834;
+      --mint: #80EAD4;
+      --mint-2: #b8e8da;
+      --ink: #0e2e2a;
+      --text: #ffffff;
+      --text-dim: rgba(255, 255, 255, .82);
+      --ink-2: #163c37;
+      --card: rgba(255, 255, 255, .08);
+      --stroke: rgba(255, 255, 255, .22);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--text); background: #e9efee; }
+
+    .hero {
+      position: relative; height: 840px; overflow: hidden;
+      background: linear-gradient(180deg, var(--g1) 0%, var(--g2) 45%, var(--g3) 100%);
+    }
+    .hero .photo { position: absolute; inset: 0; pointer-events: none; }
+    .hero .photo::before { content: ""; position: absolute; right: -8vw; top: -18vh; bottom: -18vh; width: 68vw; min-width: 680px; background: url('bg.jpg') center right / cover no-repeat; filter: saturate(1.15) brightness(.95); }
+    .hero .photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(16,66,60,.9) 0%, rgba(16,66,60,.6) 28%, rgba(16,66,60,0) 55%); }
+
+    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+
+    .nav { position: relative; z-index: 2; padding: 34px 0; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { display: block; width: 146px; height: 60px; }
+
+    .nav-center { position: absolute; left: 50%; transform: translateX(-50%); }
+    .btn-cta { background: var(--mint); color: #10423C; border: 0; padding: 12px 32px; border-radius: 999px; font-size: 18px; line-height: 22px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+    .btn-cta:hover { background: var(--mint-2); }
+
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+    .nav-right a { color: #fff; text-decoration: none; font-size: 18px; }
+    .nav-right a.login { text-decoration: underline; text-underline-offset: 3px; }
+
+    .hero-content { position: relative; z-index: 2; padding-top: 210px; max-width: 820px; }
+    .hero h1 { font-size: 42px; line-height: 1.2; font-weight: 700; margin-bottom: 28px; }
+
+    .btn-hero { display: inline-flex; align-items: center; gap: 10px; background: var(--mint); color: #10423C; border: 0; padding: 12px 24px; border-radius: 18px; font-size: 18px; line-height: 22px; cursor: pointer; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+    .btn-hero:hover { background: var(--mint-2); }
+
+    .section { background: #fff; color: #1d2726; }
+    .section .container { padding-top: 64px; padding-bottom: 64px; }
+    .impact { display: grid; grid-template-columns: 1.2fr 1fr 1.1fr; gap: 28px; align-items: end; }
+    .impact .intro h2 { font-size: 28px; margin-bottom: 12px; color: #123d38; }
+    .impact .intro p { color: #57736e; line-height: 1.6; max-width: 420px; }
+    .stat { background: linear-gradient(180deg, rgba(18, 88, 80, .12), rgba(18, 88, 80, .06)); border: 1px solid rgba(18, 88, 80, .18); border-radius: 14px; height: 220px; padding: 22px; display: flex; align-items: flex-end; position: relative; overflow: hidden; }
+    .stat .value { font-size: 64px; font-weight: 700; color: #2fd3b8; line-height: 1; }
+    .stat .label { margin-top: 6px; color: #2b4e49; }
+    .stat.tall { height: 260px; }
+    .stat .bars { position: absolute; right: 14px; bottom: 12px; left: 14px; height: 60px; opacity: .6; display: grid; grid-auto-flow: column; gap: 4px; align-items: end; }
+    .stat .bars span { width: 6px; background: #2b4e49; border-radius: 2px; }
+
+    .figures { background: #f0fbf9; }
+    .figures .container { padding-top: 56px; padding-bottom: 56px; text-align: center; }
+    .figures h3 { color: #123d38; font-size: 22px; margin-bottom: 4px; }
+    .figures p.lead { color: #57736e; max-width: 760px; margin: 0 auto 28px; }
+    .fig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .fig { background: #fff; border-radius: 14px; padding: 28px; border: 1px solid #e5efec; box-shadow: 0 8px 22px rgba(0,0,0,.04); }
+    .fig .big { font-size: 48px; font-weight: 700; color: #0f5a51; }
+    .fig .sub { color: #57736e; margin-top: 6px; }
+
+    .cards { background: #fff; }
+    .cards .container { display: grid; gap: 34px; padding-top: 50px; padding-bottom: 50px; }
+    .card-img { position: relative; border-radius: 12px; overflow: hidden; height: 240px; background: #ddd; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-img .overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.0) 20%, rgba(0,0,0,.35) 100%); }
+    .card-img .text { position: absolute; left: 18px; bottom: 18px; right: 18px; color: #fff; font-size: 20px; font-weight: 600; }
+
+    .split { display: grid; grid-template-columns: 0.6fr 1.2fr; gap: 28px; align-items: start; }
+    .menu { background: #f4f7f7; border-radius: 12px; padding: 22px; border: 1px solid #e7eeee; }
+    .menu h4 { color: #123d38; margin-bottom: 12px; }
+    .menu ul { list-style: none; display: grid; gap: 10px; }
+    .menu li { color: #839a96; font-weight: 500; }
+    .menu li.active { color: #0f5a51; font-weight: 700; }
+    .mini-card { height: 220px; border-radius: 14px; overflow: hidden; background: linear-gradient(140deg, #0d5c5e, #0c403d); color: #fff; position: relative; padding: 22px; }
+    .mini-card .cta { position: absolute; left: 22px; bottom: 18px; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; padding: 8px 14px; font-size: 14px; }
+
+    .diagonal { position: relative; background: linear-gradient(180deg, #eaf6f4, #ffffff); }
+    .diagonal .band { position: relative; height: 420px; overflow: hidden; background: linear-gradient(180deg, var(--g1) 0%, var(--g2) 45%, var(--g3) 100%); }
+    .diagonal .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.0) 40%, rgba(255,255,255,.6) 65%, rgba(255,255,255,1) 100%); mix-blend-mode: screen; }
+    .diagonal .content { position: absolute; right: 80px; bottom: 40px; color: #fff; max-width: 340px; }
+    .btn-ghost { display: inline-block; border: 1px solid rgba(255,255,255,.7); color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; margin-top: 10px; }
+
+    footer { background: #2a4a46; color: #d8eeea; }
+    footer .container { padding-top: 40px; padding-bottom: 40px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 28px; }
+    footer a { color: #d8eeea; text-decoration: none; }
+
+    .hamb { display: none; width: 28px; height: 24px; place-items: center; }
+    .hamb::before, .hamb::after, .hamb span { content: ""; display: block; width: 22px; height: 2px; background: #fff; }
+    .hamb::before { transform: translateY(-6px); }
+    .hamb::after { transform: translateY(6px); }
+
+    @media (max-width: 991px) {
+      .container { padding: 0 20px; max-width: none; }
+      .nav-right { display: none; }
+      .nav-center { display: none; }
+      .hamb { display: inline-grid; }
+      .hero-content { padding-top: 140px; max-width: none; }
+      .impact { grid-template-columns: 1fr; }
+      .fig-grid { grid-template-columns: 1fr; }
+      footer .container { grid-template-columns: 1fr 1fr; }
+      .split { grid-template-columns: 1fr; }
+    }
+  /* BEGIN: hero from index.html */
+.hero-section {
+  background: linear-gradient(180deg, #3C766F 0%, #096F64 44.71%, #113834 100%);
+  height: 801px;
+  max-height: 801px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+}
+.custom-container { width: 100%; padding-left: 80px; padding-right: 80px; }
+.navbar-custom { padding-block: 50px; }
+.navbar-content { display: flex; justify-content: space-between; align-items: center; }
+.navbar-brand svg { width: 146px; height: 60px; }
+.navbar-center { position: absolute; left: 50%; transform: translateX(-50%); }
+.btn-request-nav { background-color: #80EAD4; color: #10423C; border: none; padding: 13px 61px; border-radius: 50px; font-weight: 400; font-size: 20px; line-height: 24px; transition: all .3s ease; white-space: nowrap; cursor: pointer; width: 274px; }
+.btn-request-nav:hover { background-color: #b8e8da; transform: translateY(-1px); }
+.navbar-right { display: flex; align-items: center; gap: 37px; margin-left: auto; }
+.nav-link-custom { color: white; text-decoration: none; font-size: 20px; font-weight: 400; transition: opacity .3s ease; white-space: nowrap; }
+.nav-link-custom:hover { opacity: .8; }
+.nav-link-custom.login { text-decoration: underline; text-underline-offset: 4px; }
+.search-icon { cursor: pointer; width: 33px; height: 33px; background: rgba(255,255,255,.18); border-radius: 50%; transition: opacity .3s ease; display: flex; align-items: center; justify-content: center; margin-left: 7px; }
+.search-icon:hover { opacity: .8; }
+.desktop-nav { display: flex; align-items: center; width: 100%; }
+.hero-content { padding-top: 281px; }
+.hero-title { font-size: 48px; font-weight: 700; line-height: 58px; max-width: 1073px; margin-bottom: 48px; }
+.btn-hero { background-color: #80EAD4; color: #10423C; border: none; padding: 13px 30px; border-radius: 20px; font-weight: 400; font-size: 20px; line-height: 24px; display: flex; align-items: center; gap: 10px; width: 274px; transition: all .3s ease; cursor: pointer; }
+.btn-hero:hover { background-color: #b8e8da; transform: translateY(-2px); }
+.arrow-icon { width: 20px; height: 20px; transition: transform .3s ease; }
+.btn-hero:hover .arrow-icon { transform: translateX(5px); }
+.mobile-menu-toggle { display: none; background: none; border: 1px solid rgba(255,255,255,.5); padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+.hamburger { width: 24px; height: 24px; position: relative; }
+.hamburger span { display: block; width: 100%; height: 2px; background: white; margin: 5px 0; transition: .3s; }
+.mobile-nav { display: none; background: rgba(0,0,0,.1); padding: 20px; border-radius: 10px; margin-top: 20px; }
+.mobile-nav.active { display: block; }
+.mobile-nav .nav-link-custom { display: block; padding: 12px 0; }
+.mobile-nav .btn-request-nav { width: 100%; margin-top: 16px; }
+@media (max-width: 991px) {
+  .desktop-nav { display: none; }
+  .mobile-menu-toggle { display: block; }
+  .hero-title { font-size: 40px; }
+  .hero-content { padding-top: 120px; }
+}
+@media (max-width: 768px) { .custom-container { padding-left: 20px; padding-right: 20px; } }
+/* END: hero from index.html */
+  /* Impact section (pixel-precise layout) */
+.impact-section {
+  background: #ffffff;
+  color: #102f2a;
+}
+.impact-section .container {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+.impact2-header {
+  max-width: 520px;
+  margin-bottom: 38px;
+}
+.impact2-header h2 {
+  font-size: 48px;
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f3a35;
+  margin-bottom: 18px;
+}
+.impact2-header p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #6c817d;
+}
+.impact2-cards {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+}
+.i-card {
+  border-radius: 28px;
+  position: relative;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(8, 56, 50, 0.16);
+}
+/* widths tuned to fit container (1040px content width) */
+.i-card.i72 { width: 340px; height: 280px; background: #3aa59b; }
+.i-card.i85 { width: 360px; height: 300px; background: #80ead4; }
+.i-card.i93 { width: 260px; height: 420px; background: #0e3f39; }
+
+.i-value {
+  font-size: 84px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: #ffffff;
+}
+.i-value.dark { color: #0f3a35; }
+
+.i-text {
+  margin-top: 12px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.94);
+  max-width: 90%;
+}
+.i-text.dark { color: #0f3a35; opacity: 0.88; }
+
+/* Bars decoration in the 93% card */
+.i-bars {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 18px;
+  height: 90px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 10px;
+  align-items: end;
+  opacity: 0.65;
+}
+.i-bars span {
+  width: 10px;
+  background: #5a8f88;
+  border-radius: 5px;
+}
+@media (max-width: 991px) {
+  .impact2-cards { flex-direction: column; align-items: stretch; }
+  .i-card { width: 100% !important; height: auto; }
+}
+  </style>
+</head>
+<body>
+  <div class="hero-section">
+  <nav class="navbar-custom">
+    <div class="custom-container">
+      <div class="navbar-content">
+        <a class="navbar-brand" href="#">
+           <svg width="451" height="199" viewBox="0 0 451 199" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M76.5621 108.261L76.5511 2.1074C76.5512 1.66148 76.4098 1.22703 76.1472 0.866572C75.8847 0.506117 75.5146 0.238234 75.0902 0.101497C74.6657 -0.0352401 74.2089 -0.0337793 73.7853 0.105647C73.3617 0.245074 72.9933 0.515278 72.7331 0.877391L61.0261 17.1414C58.5451 20.5921 57.2097 24.7344 57.2081 28.9844V122.207C61.8911 119.152 66.7811 115.73 71.7931 111.947C73.4071 110.729 74.9968 109.501 76.5621 108.261Z" fill="white"/>
+                            <path d="M145.893 52.7354C140.993 46.2464 122.217 45.7354 103.293 58.0814V32.6304C103.291 30.5777 102.851 28.5491 102.002 26.6801C101.153 24.8111 99.9153 23.1448 98.3711 21.7924L88.8611 13.4834C88.4316 13.1082 87.9031 12.8646 87.3389 12.7816C86.7746 12.6987 86.1984 12.78 85.6791 13.0159C85.1598 13.2517 84.7194 13.632 84.4104 14.1114C84.1015 14.5908 83.9372 15.1491 83.9371 15.7194V102.219C90.7528 96.4964 97.1678 90.3125 103.137 83.7114C103.188 83.6544 103.237 83.5974 103.288 83.5394V65.7404C113.027 60.1844 119.448 61.5564 121.308 64.0244C126.83 71.3384 106.862 95.7134 76.7141 118.467C46.5661 141.221 17.6481 153.738 12.1301 146.423C9.01508 142.297 17.7021 127.091 30.4761 114.584V136.832C37.1566 133.959 43.6248 130.614 49.8321 126.825V39.2254C49.8322 38.7794 49.6909 38.3448 49.4284 37.9841C49.1659 37.6235 48.7958 37.3555 48.3713 37.2185C47.9468 37.0816 47.4898 37.0828 47.066 37.2221C46.6423 37.3613 46.2736 37.6314 46.0131 37.9934L34.2951 54.2774C31.8137 57.728 30.4779 61.8703 30.4761 66.1204V107.157C9.49409 128.473 -4.52393 154.057 1.34307 161.824C5.49507 167.324 16.2131 167.111 30.4761 162.324V169.275C30.4784 171.328 30.9187 173.357 31.7675 175.226C32.6162 177.095 33.854 178.762 35.3981 180.114L44.9141 188.42C45.3433 188.796 45.8716 189.04 46.4357 189.123C46.9999 189.206 47.576 189.125 48.0952 188.889C48.6144 188.653 49.0547 188.273 49.3635 187.793C49.6722 187.314 49.8363 186.756 49.8361 186.185V154.085C52.2481 152.873 54.7058 151.573 57.2091 150.185V196.762C57.209 197.208 57.3504 197.643 57.6129 198.003C57.8754 198.364 58.2456 198.632 58.67 198.768C59.0944 198.905 59.5513 198.904 59.9749 198.764C60.3984 198.625 60.7669 198.354 61.0271 197.992L72.7451 181.71C75.2266 178.26 76.562 174.117 76.5631 169.867V138.307C79.0104 136.66 81.4681 134.951 83.9361 133.181V160.863C83.9364 161.309 84.0782 161.744 84.341 162.104C84.6039 162.465 84.9742 162.733 85.3988 162.869C85.8235 163.006 86.2805 163.005 86.7042 162.865C87.1279 162.726 87.4966 162.456 87.7571 162.093L99.4731 145.807C101.953 142.356 103.289 138.214 103.291 133.964V118.074C135.204 90.9924 153.814 63.2314 145.893 52.7354Z" fill="white"/>
+                            <path d="M147.804 122.935L155.532 76.3895H168.168L165.077 95.2076H165.713L182.804 76.3895H197.532L178.441 97.1167L190.168 122.935H175.077L167.622 105.48L162.441 111.026L160.441 122.935H147.804ZM254.532 93.844H241.895C241.986 92.7682 241.926 91.7985 241.713 90.9349C241.501 90.0713 241.138 89.3288 240.622 88.7076C240.107 88.0713 239.433 87.5864 238.6 87.2531C237.766 86.9198 236.774 86.7531 235.622 86.7531C233.41 86.7531 231.433 87.3061 229.691 88.4122C227.948 89.5031 226.501 91.0713 225.35 93.1167C224.198 95.147 223.38 97.5713 222.895 100.389C222.471 103.117 222.456 105.382 222.85 107.185C223.259 108.988 224.054 110.336 225.236 111.23C226.433 112.124 227.986 112.571 229.895 112.571C231.168 112.571 232.335 112.42 233.395 112.117C234.471 111.814 235.426 111.382 236.259 110.821C237.107 110.246 237.827 109.564 238.418 108.776C239.024 107.973 239.486 107.086 239.804 106.117H252.532C252.047 108.086 251.183 110.102 249.941 112.162C248.698 114.208 247.092 116.094 245.122 117.821C243.153 119.533 240.835 120.92 238.168 121.98C235.501 123.041 232.501 123.571 229.168 123.571C224.804 123.571 221.039 122.617 217.872 120.708C214.721 118.799 212.433 116.011 211.009 112.344C209.6 108.677 209.319 104.208 210.168 98.9349C211.016 93.844 212.691 89.5788 215.191 86.1395C217.691 82.7001 220.729 80.1091 224.304 78.3667C227.88 76.6243 231.683 75.7531 235.713 75.7531C238.759 75.7531 241.486 76.1546 243.895 76.9576C246.319 77.7607 248.357 78.9349 250.009 80.4804C251.676 82.0107 252.903 83.897 253.691 86.1395C254.479 88.3819 254.759 90.9501 254.532 93.844ZM286.424 122.935H268.242L275.969 76.3895H293.424C298.212 76.3895 302.212 77.3516 305.424 79.2758C308.636 81.2001 310.916 83.9501 312.265 87.5258C313.613 91.1016 313.878 95.3591 313.06 100.299C312.272 105.056 310.674 109.124 308.265 112.503C305.871 115.882 302.81 118.465 299.083 120.253C295.371 122.041 291.151 122.935 286.424 122.935ZM282.651 112.208H287.242C289.545 112.208 291.598 111.806 293.401 111.003C295.219 110.185 296.734 108.821 297.946 106.912C299.174 104.988 300.06 102.359 300.605 99.0258C301.121 95.8743 301.105 93.4425 300.56 91.7304C300.015 90.0031 298.977 88.8061 297.446 88.1395C295.916 87.4576 293.939 87.1167 291.515 87.1167H286.833L282.651 112.208ZM338.725 122.935V76.3895H344.361V117.935H365.997V122.935H338.725ZM365.992 81.3895V76.3895H400.901V81.3895H386.265V122.935H380.628V81.3895H365.992ZM423.963 122.935H409.6V76.3895H424.6C429.115 76.3895 432.979 77.3213 436.191 79.1849C439.403 81.0334 441.865 83.6925 443.577 87.1622C445.289 90.6167 446.145 94.7531 446.145 99.5713C446.145 104.42 445.282 108.594 443.554 112.094C441.827 115.579 439.312 118.261 436.009 120.139C432.706 122.003 428.691 122.935 423.963 122.935ZM415.236 117.935H423.6C427.448 117.935 430.638 117.192 433.168 115.708C435.698 114.223 437.585 112.109 438.827 109.367C440.069 106.624 440.691 103.359 440.691 99.5713C440.691 95.8137 440.077 92.5788 438.85 89.8667C437.622 87.1395 435.789 85.0485 433.35 83.594C430.91 82.1243 427.872 81.3895 424.236 81.3895H415.236V117.935Z" fill="white"/>
+                        </svg>
+
+        </a>
+        <div class="desktop-nav">
+          <div class="navbar-center">
+            <button class="btn-request-nav">Request Access</button>
+          </div>
+          <div class="navbar-right">
+            <a class="nav-link-custom" href="#offerings">Offerings</a>
+            <a class="nav-link-custom" href="#invest">Invest</a>
+            <a class="nav-link-custom" href="#discover">Discover</a>
+            <a class="nav-link-custom" href="#about">About</a>
+            <a class="nav-link-custom login" href="login.html">Log In</a>
+            <div class="search-icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.125 15.6875C12.3017 15.6875 15.6875 12.3017 15.6875 8.125C15.6875 3.94835 12.3017 0.5625 8.125 0.5625C3.94835 0.5625 0.5625 3.94835 0.5625 8.125C0.5625 12.3017 3.94835 15.6875 8.125 15.6875Z" stroke="white"/>
+                <path d="M13.625 13.625L19.125 19.125" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+          <div class="hamburger"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+      <div class="mobile-nav" id="mobileNav">
+        <button class="btn-request-nav">Request Access</button>
+        <a class="nav-link-custom" href="#offerings">Offerings</a>
+        <a class="nav-link-custom" href="#invest">Invest</a>
+        <a class="nav-link-custom" href="#discover">Discover</a>
+        <a class="nav-link-custom" href="#about">About</a>
+        <a class="nav-link-custom login" href="login.html">Log In</a>
+      </div>
+    </div>
+  </nav>
+  <div class="custom-container">
+    <div class="hero-content">
+      <h1 class="hero-title">KEYSTONE CAPITAL DEVELOPMENTS LTD — Your Direct Path to Private Market Success</h1>
+      <button class="btn-hero">Request Access
+        <svg class="arrow-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+  <section class="impact-section">
+  <div class="container">
+    <div class="impact2-header">
+      <h2>Our Impact in Numbers</h2>
+      <p>At KEYSTONE CAPITAL DEVELOPMENTS LTD, we provide a direct path to private market success. Here’s a snapshot of how we create value for our investors.</p>
+    </div>
+    <div class="impact2-cards">
+      <article class="i-card i72">
+        <div class="i-value">72%</div>
+        <p class="i-text">Of our investors achieve above-market returns within their first year.</p>
+      </article>
+      <article class="i-card i85">
+        <div class="i-value dark">85%</div>
+        <p class="i-text dark">Portfolio diversification improved across key private market sectors.</p>
+      </article>
+      <article class="i-card i93">
+        <div class="i-value">93%</div>
+        <p class="i-text">Client satisfaction rate, thanks to transparency and long-term growth strategies.</p>
+        <div class="i-bars" aria-hidden="true">
+          <span style="height: 20px"></span>
+          <span style="height: 34px"></span>
+          <span style="height: 18px"></span>
+          <span style="height: 60px"></span>
+          <span style="height: 26px"></span>
+          <span style="height: 48px"></span>
+          <span style="height: 38px"></span>
+          <span style="height: 26px"></span>
+          <span style="height: 52px"></span>
+          <span style="height: 28px"></span>
+          <span style="height: 66px"></span>
+          <span style="height: 24px"></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+  <section class="figures">
+    <div class="container">
+      <h3>Key Figures That Define Our Success</h3>
+      <p class="lead">A disciplined, data-driven approach that pairs domain expertise with global access and long-term value creation.</p>
+      <div class="fig-grid">
+        <div class="fig">
+          <div class="big">120+</div>
+          <div class="sub">Active deals with robust oversight</div>
+        </div>
+        <div class="fig">
+          <div class="big">+</div>
+          <div class="sub">Private capital deployed in last 3 years</div>
+        </div>
+        <div class="fig">
+          <div class="big">95%</div>
+          <div class="sub">Repeat investors with ongoing allocations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="container">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1542362567-b07e54358753?q=80&w=1600&auto=format&fit=crop" alt="Investor" />
+        <div class="overlay"></div>
+        <div class="text">For investors who seek exclusive opportunities.</div>
+      </div>
+
+      <div class="split">
+        <aside class="menu">
+          <h4>Private markets</h4>
+          <ul>
+            <li class="active">Capital growth</li>
+            <li>Smart investing</li>
+            <li>Direct access</li>
+            <li>Wealth strategies</li>
+          </ul>
+        </aside>
+        <div class="mini-card">
+          <h4>Access exclusive opportunities with Keystone Capital</h4>
+          <p style="margin-top:8px; opacity:.9; max-width:520px">We unlock value in high-quality, resilient sectors with prudent risk, strong governance and transparent reporting.</p>
+          <a href="#" class="cta">Learn more</a>
+        </div>
+      </div>
+
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1600&auto=format&fit=crop" alt="Boardroom" />
+        <div class="overlay"></div>
+        <div class="text">Enter private markets with Keystone Capital</div>
+      </div>
+
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1600&auto=format&fit=crop" alt="Why investors choose" />
+        <div class="overlay"></div>
+        <div class="text">Why investors choose Keystone Capital over public markets</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;">
+    <div class="container" style="display:grid; grid-template-columns: 1fr 1fr; gap:34px; align-items:center;">
+      <div style="background:linear-gradient(145deg,#0b5551,#0a403c); border-radius:16px; padding:40px; position:relative; height: 320px; overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" alt="Laptop" style="position:absolute; width:520px; right:-40px; bottom:-40px; transform:rotate(-18deg); filter:drop-shadow(0 40px 40px rgba(0,0,0,.35));" />
+      </div>
+      <div>
+        <h3 style="color:#123d38; font-size:26px; margin-bottom:12px;">We’ve built a platform for serious investors</h3>
+        <p style="color:#57736e; margin-bottom:16px;">Discover curated opportunities, research, and direct allocations in private markets with a transparent fee structure.</p>
+        <button class="btn-cta">Open an account</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:linear-gradient(180deg, #e7f5f2, #cbeee6)">
+    <div class="container">
+      <div class="card-img" style="height:260px;">
+        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1600&auto=format&fit=crop" alt="Members" />
+        <div class="overlay"></div>
+        <div class="text">300,000+ members and growing stronger.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards">
+    <div class="container" style="grid-template-columns: repeat(5, 1fr); display:grid; gap:16px;">
+      <div class="card-img" style="height:200px;"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop" alt="" /><div class="overlay"></div></div>
+      <div class="card-img" style="height:200px;"><img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop" alt="" /><div class="overlay"></div></div>
+      <div class="card-img" style="height:200px;"><img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=800&auto=format&fit=crop" alt="" /><div class="overlay"></div></div>
+      <div class="card-img" style="height:200px;"><img src="https://images.unsplash.com/photo-1544005316-04ce1f0df7a1?q=80&w=800&auto=format&fit=crop" alt="" /><div class="overlay"></div></div>
+      <div class="card-img" style="height:200px;"><img src="https://images.unsplash.com/photo-1541534401786-2077eed87a72?q=80&w=800&auto=format&fit=crop" alt="" /><div class="overlay"></div></div>
+    </div>
+  </section>
+
+  <section class="diagonal">
+    <div class="band"></div>
+    <div class="content">
+      <h3 style="font-size:26px; font-weight:600;">Unlock direct entry to private market investments</h3>
+      <a href="#" class="btn-ghost">Request Access</a>
+    </div>
+  </section>
+
+  <section class="section" style="background:#fff;">
+    <div class="container" style="display:grid; grid-template-columns: 0.9fr 1.1fr; gap:34px; align-items:center;">
+      <div>
+        <h3 style="color:#123d38; font-size:26px; margin-bottom:12px;">Invest in future markets with confidence</h3>
+        <p style="color:#57736e; margin-bottom:16px;">Our focus is on transparency, risk management and results. We partner with leading operators across sectors.</p>
+        <button class="btn-cta">Open an account</button>
+      </div>
+      <div class="card-img" style="height:280px;">
+        <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=1600&auto=format&fit=crop" alt="Family" />
+        <div class="overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div>
+        <img src="logo.svg" alt="KCD LTD" style="width:110px; height:auto; margin-bottom:10px;" />
+        <p style="opacity:.8; max-width:240px;">Keystone Capital — private markets access, research and long-term partnership.</p>
+      </div>
+      <div>
+        <h4 style="margin-bottom:8px;">Company</h4>
+        <a href="#">About</a><br/>
+        <a href="#">Careers</a><br/>
+        <a href="#">Contact</a>
+      </div>
+      <div>
+        <h4 style="margin-bottom:8px;">Products</h4>
+        <a href="#">Offerings</a><br/>
+        <a href="#">Invest</a><br/>
+        <a href="#">Research</a>
+      </div>
+      <div>
+        <h4 style="margin-bottom:8px;">Legal</h4>
+        <a href="#">Privacy</a><br/>
+        <a href="#">Terms</a><br/>
+        <a href="#">Disclosures</a>
+      </div>
+    </div>
+  </footer>
+  <script>function toggleMobileMenu(){const m=document.getElementById('mobileNav'); if(m){m.classList.toggle('active');}}</script>
+</body>
+</html>
