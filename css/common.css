@@ -1,0 +1,62 @@
+/* Base + container caps */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom font: Versus */
+@font-face {
+  font-family: "Versus";
+  src: url("../fonts/versus-ultra_RUS_BY_LYAJKA.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Global 1920 content cap */
+.custom-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+.kv-container {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-left: 104px;
+  padding-right: 104px;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.figs-section .custom-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-left: 104px;
+  padding-right: 80px;
+  padding-top: 72px;
+  padding-bottom: 72px;
+}
+
+.impact-section .custom-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.cta-inner {
+  position: relative;
+  height: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+}

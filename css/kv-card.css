@@ -1,0 +1,17 @@
+/* KV image card section */
+.kv-card-section { background: #ffffff; }
+.kv-card { position: relative; height: 446px; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 36px rgba(0,0,0,.18); background: #d9d9d9; }
+.kv-card::before { content:""; position:absolute; inset:0; background:url("https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1920&auto=format&fit=crop") center/cover no-repeat; }
+.kv-card::after { content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.40) 28%, rgba(0,0,0,.18) 52%, rgba(0,0,0,0) 70%); }
+.kv-content { position:absolute; left:48px; bottom:56px; max-width:920px; color:#fff; }
+.kv-title { font-size:42px; line-height:1.22; font-weight:600; letter-spacing:-0.01em; margin:0 0 18px 0; }
+.kv-btn { display:inline-flex; align-items:center; gap:12px; height:40px; padding:0 22px; border-radius:999px; background:transparent; border:1px solid rgba(255,255,255,.7); color:#fff; font-size:14px; cursor:pointer; }
+.kv-btn svg { width:18px; height:18px; }
+@media (max-width:1100px){ .kv-title{ font-size:32px } }
+@media (max-width:600px){
+  .kv-card-section{ background:#ffffff; padding: 20px 16px; }
+  .kv-card{ height: 320px; border-radius: 14px; }
+  .kv-content{ left: 20px; bottom: 24px; max-width: 86%; }
+  .kv-title{ font-size: 26px; }
+  .kv-btn{ height: 36px; padding: 0 14px; font-size: 13px; }
+}
