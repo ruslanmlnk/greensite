@@ -1,0 +1,65 @@
+/* Impact section */
+.impact-section { background:#ffffff; color:#102f2a; }
+
+/* Grid layout without absolute: left text + right bars */
+.impact2-grid {
+  display: grid;
+  /* 80px (container padding) + 148px = 228px від лівого краю екрана */
+  grid-template-columns: 148px 520px 64px 1313px; /* left offset + text + gap + bars */
+  column-gap: 0;
+  align-items: start;
+}
+
+/* Header spans both columns to частково заходити над першим баром */
+.impact2-header {
+  grid-column: 2 / 3; /* саме текстова колонка */
+  grid-row: 1;
+  width: 520px;
+}
+
+/* Typography for header */
+.impact2-header h2 {
+  font-size: 72px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: 0;
+  color: #0f3a35;
+  margin: 0 0 18px;
+}
+.impact2-header p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #6c817d;
+  max-width: 520px;
+}
+
+/* Bars group прилягає праворуч */
+.impact2-cards {
+  grid-column: 4 / 5;
+  grid-row: 1;
+  align-self: end; /* бари по нижньому краю */
+  display: flex;
+  align-items: flex-end;
+  gap: 19px;
+}
+
+.i-card { border-radius:28px 28px 0 0; position:relative; padding:28px; overflow:hidden; border:1px solid rgba(8,56,50,0.16); }
+/* Bar heights for 1920px design */
+.i-card.i72 { width:425px; height:388px; background:#3aa59b; }
+.i-card.i85 { width:425px; height:542px; background:#80ead4; }
+.i-card.i93 { width:425px; height:722px; background:#0e3f39; }
+.i-value { font-size:84px; font-weight:800; letter-spacing:-0.02em; line-height:1; color:#ffffff; }
+.i-value.dark { color:#0f3a35; }
+.i-text { margin-top:12px; font-size:16px; line-height:1.55; color:rgba(255,255,255,0.94); max-width:90%; }
+.i-text.dark { color:#0f3a35; opacity:.88; }
+.i-bars { position:absolute; left:22px; right:22px; bottom:18px; height:90px; display:grid; grid-auto-flow:column; gap:10px; align-items:end; opacity:.65; }
+.i-bars span { width:10px; background:#5a8f88; border-radius:5px; }
+
+@media (max-width: 991px) {
+  .impact2-grid { grid-template-columns: 1fr; }
+  .impact2-header { grid-column: 1; grid-row: 1; width: auto; margin: 24px 16px 16px; }
+  .impact2-cards { grid-column: 1; grid-row: 2; width: 100%; margin: 0; flex-direction: column; align-items: stretch; }
+  .i-card { width: 100% !important; height: auto; }
+}
+
+@media (max-width: 600px) { .impact-section { display: none; } }
