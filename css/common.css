@@ -22,10 +22,10 @@ body {
 /* Global 1920 content cap */
 .custom-container {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1760px;
   margin: 0 auto;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .kv-container {

@@ -2,8 +2,8 @@
     --ar-bg: #ffffff;
     --ar-head: #0A2925;
     --ar-text: #678682;
-    --ar-max: 1920px;
-    --ar-side: 266.5px;
+    --ar-max: 1435px;
+    --ar-side: 24px;
     --ar-gap-x: 97px;
     --ar-gap-y: 30px;
 }
@@ -15,7 +15,7 @@
 }
 
 .ar-wrap {
-    max-width: calc(var(--ar-max));
+    max-width: var(--ar-max);
     margin: 0 auto;
     padding: 110px var(--ar-side) 120px;
 }

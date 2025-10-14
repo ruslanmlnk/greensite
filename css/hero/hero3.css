@@ -320,14 +320,14 @@
 
 /* --- Hero heading --- */
 :root {
-    --hero-side-pad: 88px;
+    --hero-side-pad: 24px;
     /* бокові відступи заголовка і картинки */
     --article-side-pad: 24px;
     /* бокові відступи тексту після картинки */
 }
 
 .hero-content {
-    max-width: 1920px;
+    max-width: 1792px;
     margin: 0 auto;
     padding: 25px var(--hero-side-pad) 0;
     /* як у макеті (Top 178px) */
@@ -350,7 +350,7 @@
 
 /* --- Feature image --- */
 .img-container {
-    max-width: 1920px;
+    max-width: 1792px;
     margin: 0 auto;
     padding-left: var(--hero-side-pad);
     padding-right: var(--hero-side-pad);
