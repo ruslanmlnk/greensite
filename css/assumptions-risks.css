@@ -1,0 +1,107 @@
+:root {
+    --ar-bg: #ffffff;
+    --ar-head: #0A2925;
+    --ar-text: #678682;
+    --ar-max: 1920px;
+    --ar-side: 266.5px;
+    --ar-gap-x: 97px;
+    --ar-gap-y: 30px;
+}
+
+
+
+.assumptions-risks {
+    background: var(--ar-bg);
+}
+
+.ar-wrap {
+    max-width: calc(var(--ar-max));
+    margin: 0 auto;
+    padding: 110px var(--ar-side) 120px;
+}
+
+.ar-title {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: var(--ar-head);
+    
+    letter-spacing: 1.3px;
+    /* margin: 0 0 30px; */
+}
+
+.ar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ar-gap-x);
+}
+
+.ar-col {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--ar-gap-y);
+}
+.ar-col:first-child{
+    padding-top: 14px;
+}
+.ar-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.ar-text {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: var(--ar-text);
+    margin: 0 0 15px;
+    white-space: pre-line;
+}
+
+.ar-lead {
+    font-weight: 500;
+    color: var(--ar-head);
+    margin: 0 0 15px;
+    font-size: 24px;
+}
+
+.gap-194 {
+    margin-top: 194px;
+}
+
+.gap-107 {
+    margin-top: 107px;
+}
+
+@media (max-width:991px) {
+    .gap-194 {
+        margin-top: 80px
+    }
+
+    .gap-107 {
+        margin-top: 60px
+    }
+}
+
+@media (max-width:768px) {
+    .ar-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .ar-wrap{
+        padding: 110px 24px 120px;
+    }
+
+    /* права колонка під лівою */
+}
+
+@media (max-width:640px) {
+    .gap-194 {
+        margin-top: 60px
+    }
+
+    .gap-107 {
+        margin-top: 40px
+    }
+}
