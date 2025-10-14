@@ -18,16 +18,15 @@
 /* Hero Section */
 .hero-section {
   /* exact same image behaviour, just explicit */
-  background: url(../../hero.jpg) center/cover no-repeat;
+  background: url(../../img/hero.jpg) center/cover no-repeat;
   height: 801px;
-  max-height: 801px;
   position: relative;
   color: var(--white);
   overflow: hidden;
   margin-bottom: 60px;
 }
 .hero-section.grad{
-  background: url(../../bg.jpg) center/cover no-repeat;
+  background: url(../../img/bg.jpg) center/cover no-repeat;
 }
 
 .hero-section::before {
@@ -47,7 +46,7 @@
   transform: translateX(-50%);
   position: absolute;
   width: 100%;
-  max-width: 1744px;
+  max-width: 1796px;
   padding: 0 24px;
   z-index: 1;
   margin: 0 auto;

@@ -1,0 +1,190 @@
+:root {
+    --container-max: 1813px;
+    /* макс. ширина контенту */
+    --radius: 4px;
+    --card-bg: #EAFFFD;
+    /* світло-м’ятний фон картки */
+    --ink: #10403B;
+    /* заголовки */
+    --muted: #678682;
+    /* текст */
+    --brand: #0B6E66;
+    /* кнопка текст */
+    --brand-pill: #0B6E66;
+    /* контур/тінь від бренду */
+    --btn-bg: #0B6E66;
+    --btn-bg-hover: #0A5F58;
+}
+
+.news-group{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 131px;
+}
+.news-section {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.news-title {
+    font-size: 48px;
+    line-height: 58px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 35px;
+    /* підганяй під макет */
+}
+
+/* GRID (1920 → 4 колонки) */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    /* як на скріні між картками */
+}
+
+/* CARD */
+.news-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+
+    padding: 18px 23px 36px 22px;
+}
+
+/* THUMB: однакова висота, кроп без спотворень */
+.news-thumb {
+    width: 100%;
+    height: 257px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.news-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* BODY */
+.news-body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.news-heading {
+    font-size: 18px;
+    line-height: 1.35;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0;
+    line-height: 22px;
+}
+
+.news-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.news-excerpt {
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 22px;
+}
+
+/* BUTTON */
+.news-btn {
+    width: 100%;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 20px;
+    padding: 14px 0;
+    background: #004D58;
+    /* темно-м’ятний як на скріні */
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 400;
+    transition: transform .15s ease, background-color .2s ease;
+}
+
+.news-btn:hover {
+    background: #0A6C64;
+    transform: translateY(-1px);
+}
+
+.news-btn:active {
+    transform: translateY(0);
+}
+
+/* ========== АДАПТИВ ========== */
+/* планшет: 2 колонки */
+@media (max-width: 1024px) {
+    .news-title {
+        font-size: 36px;
+        line-height: 44px;
+        margin: 48px 0 22px;
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .news-heading {
+        font-size: 17px;
+    }
+}
+
+/* мобільні: 1 колонка, читабельні відступи */
+@media (max-width: 640px) {
+    .news-section {
+        padding: 0 16px;
+    }
+
+    .news-title {
+        font-size: 28px;
+        line-height: 34px;
+        margin: 36px 0 18px;
+    }
+
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .news-body {
+        padding: 14px 14px 16px;
+    }
+
+    .news-heading {
+        font-size: 16px;
+        min-height: unset;
+    }
+
+    .news-meta {
+        font-size: 13px;
+    }
+
+    .news-excerpt {
+        font-size: 13px;
+        -webkit-line-clamp: 4;
+        /* на мобі можна дати на рядок більше */
+    }
+
+    .news-btn {
+        font-size: 15px;
+        padding: 12px 0;
+    }
+}

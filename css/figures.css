@@ -6,7 +6,7 @@
     }
 
     .figs-container {
-      max-width: 1622px;
+      max-width: 1760px;
       margin: 0 auto;
       padding: 0 24px;
     }
@@ -66,10 +66,6 @@
 
     /* Tablet */
     @media (max-width: 1440px) {
-      .figs-container {
-        padding: 0 60px;
-      }
-
       .figs-grid {
         gap: 48px;
       }
@@ -85,10 +81,7 @@
         padding: 80px 0 100px 0;
       }
 
-      .figs-container {
-        padding: 0 40px;
-      }
-
+     
       .figs-head {
         margin-bottom: 60px;
       }
@@ -116,13 +109,11 @@
     @media (max-width: 768px) {
       .figs-section {
         padding: 60px 0 80px 0;
+        display: none;
       }
 
-      .figs-container {
-        padding: 0 24px;
-      }
-
-      .figs-head {
+     
+      /* .figs-head {
         margin-bottom: 48px;
       }
 
@@ -142,6 +133,7 @@
 
       .fig {
         gap: 12px;
+        text-align: center;
       }
 
       .metric-value {
@@ -151,11 +143,11 @@
       .metric-desc {
         font-size: 15px;
         line-height: 1.6;
-      }
+      } */
     }
 
     /* Small mobile */
-    @media (max-width: 480px) {
+    /* @media (max-width: 480px) {
       .figs-section {
         padding: 40px 0 60px 0;
       }
@@ -187,4 +179,4 @@
       .metric-desc {
         font-size: 14px;
       }
-    }
+    } */

@@ -22,7 +22,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../insights.jpg") center / cover no-repeat;
+  background: url("../img/insights.jpg") center / cover no-repeat;
 }
 
 .insights-card::after {
