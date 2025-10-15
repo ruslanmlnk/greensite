@@ -1,14 +1,14 @@
 /* Insights promo section (1920px canvas) */
 .insights-section {
-  width: 100%;
-  max-width: 1920px;
+  max-width: 1807px;
   margin: 0 auto;
-  padding: 17px 0 140px; /* extra bottom to clear overlapping next section */
+  padding: 17px 24px 140px; /* extra bottom to clear overlapping next section */
 }
 
 /* Fixed-size card for 1920px viewport */
 .insights-card {
-  width: 1759px;
+  /* width: ;
+  padding: 0 24px; */
   height: 876px;
   margin: 0 auto; /* center within 1920 canvas */
   position: relative;
@@ -78,18 +78,15 @@
   width: 18px; height: 18px; display: block;
 }
 
-/* Responsive fallbacks */
-@media (max-width: 1760px) {
-  .insights-card { width: calc(100% - 160px); height: auto; aspect-ratio: 1759 / 876; }
-}
 
-@media (max-width: 1024px) {
+
+/* @media (max-width: 1024px) {
   .insights-section { padding: 32px 0; }
   .insights-content { left: 32px; bottom: 36px; max-width: 86%; }
   .insights-title { font-size: 34px; line-height: 40px; margin-bottom: 16px; }
-}
+} */
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .insights-content { left: 20px; bottom: 24px; max-width: 88%; }
   .insights-title { font-size: 26px; line-height: 32px; }
   .insights-btn { font-size: 16px; padding: 10px 16px; gap: 12px; }
