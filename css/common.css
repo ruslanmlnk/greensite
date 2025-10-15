@@ -20,12 +20,15 @@ body {
 }
 
 /* Global 1920 content cap */
-.custom-container {
-  width: 100%;
-  max-width: 1808px;
-  margin: 0 auto;
+.container-xxl {
   padding-left: 24px;
   padding-right: 24px;
+}
+
+@media (min-width: 1400px) {
+  .container-xxl {
+    max-width: 1808px;
+  }
 }
 
 .kv-container {
@@ -38,7 +41,7 @@ body {
   padding-bottom: 48px;
 }
 
-.figs-section .custom-container {
+.figs-section .container-xxl {
   max-width: 1920px;
   margin: 0 auto;
   padding-left: 104px;
@@ -47,7 +50,7 @@ body {
   padding-bottom: 72px;
 }
 
-.impact-section .custom-container {
+.impact-section .container-xxl {
   max-width: 1920px;
   margin: 0 auto;
   padding-top: 88px;
