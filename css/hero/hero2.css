@@ -1,4 +1,6 @@
-/* Hero image variants */
+/* =========================================================
+   Hero image variants
+   ========================================================= */
 .hero-section.hero--image {
   --hero-overlay: rgba(0, 0, 0, 0.5);
   margin-bottom: 60px;
@@ -13,8 +15,7 @@
   bottom: 113px;
   left: 50%;
   transform: translateX(-50%);
-  width: 100%;
-  max-width: 1796px;
+  width: min(100%, 1796px);
   padding: 0 24px;
   margin: 0 auto;
 }
